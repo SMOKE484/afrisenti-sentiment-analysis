@@ -1,0 +1,26 @@
+# Virtual environment
+venv/
+
+# Data files (too large for GitHub)
+data/
+
+# Saved models
+results/models/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Environment variables
+.env
+
+# VS Code settings
+.vscode/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# HuggingFace cache
+*.cache
