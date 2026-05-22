@@ -76,7 +76,7 @@ Each tweet is labelled as **positive**, **negative**, or **neutral**.
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/<your-username>/afrisenti-group36.git
+git clone https://github.com/Afrisent-Sentiment-Analysis/afrisenti-sentiment-analysis.git
 cd afrisenti-group36
 pip install -r requirements.txt
 ```
