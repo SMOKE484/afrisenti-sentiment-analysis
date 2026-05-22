@@ -1,9 +1,8 @@
 # AfriSenti Sentiment Analysis
-###Natural Language Processing — Group 36
+### COS 760 Natural Language Processing — Group 36
 **University of Pretoria**
 
 Vhulenda Mashamba | Phetho Nemavhola | Thabelo Mulaudzi
-
 ---
 
 ## Overview
