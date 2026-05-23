@@ -77,7 +77,7 @@ Clone the repository and install dependencies:
 
 ```bash
 git clone https://github.com/Afrisent-Sentiment-Analysis/afrisenti-sentiment-analysis.git
-cd afrisenti-group36
+cd afrisenti-sentiment-analysis
 pip install -r requirements.txt
 ```
 
