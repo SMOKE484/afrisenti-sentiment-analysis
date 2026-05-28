@@ -1,9 +1,8 @@
 # AfriSenti Sentiment Analysis
-### COS 760 Natural Language Processing — Group 36
+### Natural Language Processing — Group 36
 **University of Pretoria**
 
 Vhulenda Mashamba | Phetho Nemavhola | Thabelo Mulaudzi
-
 ---
 
 ## Overview
@@ -77,8 +76,8 @@ Each tweet is labelled as **positive**, **negative**, or **neutral**.
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/<your-username>/afrisenti-group36.git
-cd afrisenti-group36
+git clone https://github.com/Afrisent-Sentiment-Analysis/afrisenti-sentiment-analysis.git
+cd afrisenti-sentiment-analysis
 pip install -r requirements.txt
 ```
 
