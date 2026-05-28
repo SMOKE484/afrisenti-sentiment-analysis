@@ -20,10 +20,18 @@ The project addresses three research questions:
 ## Repository Structure
 
 ```
-afrisenti-group36/
+afrisenti-sentiment-analysis/
 │
 ├── data/
-│   ├── raw/                        # Original downloaded CSVs per language
+│   ├── hau_train.csv               # Raw Hausa splits
+│   ├── hau_validation.csv
+│   ├── hau_test.csv
+│   ├── yor_train.csv               # Raw Yoruba splits
+│   ├── yor_validation.csv
+│   ├── yor_test.csv
+│   ├── ibo_train.csv               # Raw Igbo splits
+│   ├── ibo_validation.csv
+│   ├── ibo_test.csv
 │   └── processed/                  # Cleaned CSVs after preprocessing
 │
 ├── src/
@@ -34,13 +42,14 @@ afrisenti-group36/
 │       └── baseline.py             # TF-IDF + Logistic Regression baseline
 │
 ├── notebooks/
-│   ├── finetuning_notebook.ipynb   # Fine-tuning mBERT, AfriBERTa, AfroXLMR
-│   ├── augmentation_notebook.ipynb # Back-translation and synonym replacement
-│   └── error_analysis_notebook.ipynb # Confusion matrices and LIME analysis
+│   └── afrisentifinetuning.ipynb   # Fine-tuning, augmentation, and error analysis
 │
 ├── results/
 │   ├── models/                     # Saved baseline models (.pkl)
-│   ├── plots/                      # Confusion matrix and LIME images
+│   ├── plots/                      # Transformer confusion matrices and LIME images
+│   ├── hau_baseline_confusion_matrix.png
+│   ├── yor_baseline_confusion_matrix.png
+│   ├── ibo_baseline_confusion_matrix.png
 │   ├── finetuning_results.csv      # Test F1 and accuracy for all 9 experiments
 │   └── augmentation_results.csv    # Augmentation experiment results
 │
@@ -112,7 +121,7 @@ Trains a TF-IDF (character n-grams, range 2-5) + balanced Logistic Regression cl
 
 ### 3. Transformer Fine-tuning
 
-Open and run `notebooks/finetuning_notebook.ipynb` on Kaggle (or any GPU environment).
+Open and run `notebooks/afrisentifinetuning.ipynb` on Kaggle (or any GPU environment).
 
 Training configuration:
 - Epochs: 5
@@ -142,7 +151,7 @@ Training configuration:
 
 ### 4. Data Augmentation
 
-Open and run `notebooks/augmentation_notebook.ipynb`.
+Open and run `notebooks/afrisentifinetuning.ipynb`.
 
 Back-translation (Helsinki-NLP MarianMT) was applied to Hausa only, as Helsinki-NLP models for Yoruba and Igbo are not available on HuggingFace. Synonym replacement (NLTK WordNet) was applied to all three languages.
 
@@ -156,7 +165,7 @@ Back-translation (Helsinki-NLP MarianMT) was applied to Hausa only, as Helsinki-
 
 ### 5. Error Analysis
 
-Open and run `notebooks/error_analysis_notebook.ipynb`.
+Open and run `notebooks/afrisentifinetuning.ipynb`.
 
 This generates confusion matrices and LIME explanations for AfriBERTa predictions. Output plots are saved to `results/plots/`.
 
