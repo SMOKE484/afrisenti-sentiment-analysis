@@ -97,12 +97,30 @@ Key library versions (full list in `requirements.txt`):
 
 ### Installation
 
-Clone the repository:
+You can get the project files in one of two ways:
+
+**Option A — Clone the repository (recommended if you have Git):**
 
 ```bash
 git clone https://github.com/Afrisent-Sentiment-Analysis/afrisenti-sentiment-analysis.git
 cd afrisenti-sentiment-analysis
 ```
+
+**Option B — Download the zip file:**
+
+1. Download `Group36.zip` from the submission portal (or the GitHub repository: click **Code → Download ZIP**).
+2. Extract the zip file to a location of your choice.
+3. Open a terminal and navigate into the extracted folder:
+
+```bash
+# Windows (Command Prompt or PowerShell)
+cd path\to\afrisenti-sentiment-analysis
+
+# Mac/Linux
+cd path/to/afrisenti-sentiment-analysis
+```
+
+> Make sure you are inside the project root folder (you should see `requirements.txt` and `src/` when you run `ls` or `dir`).
 
 #### 1. Create a virtual environment
 
