@@ -97,12 +97,70 @@ Key library versions (full list in `requirements.txt`):
 
 ### Installation
 
-Clone the repository and install dependencies:
+Clone the repository:
 
 ```bash
 git clone https://github.com/Afrisent-Sentiment-Analysis/afrisenti-sentiment-analysis.git
 cd afrisenti-sentiment-analysis
+```
+
+#### 1. Create a virtual environment
+
+```bash
+# Windows
+python -m venv venv
+
+# Mac/Linux
+python3 -m venv venv
+```
+
+#### 2. Activate the virtual environment
+
+```bash
+# Windows (Command Prompt)
+venv\Scripts\activate.bat
+
+# Windows (PowerShell)
+venv\Scripts\Activate.ps1
+
+# Mac/Linux
+source venv/bin/activate
+```
+
+**How to confirm it is active:** Your terminal prompt should show `(venv)` at the start of the line, for example:
+
+```
+(venv) C:\Users\yourname\afrisenti-sentiment-analysis>
+```
+
+#### 3. Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
+
+#### Troubleshooting the virtual environment
+
+**`(venv)` is not showing** — the environment is not active. Re-run the activate command for your OS above before installing or running any scripts.
+
+**PowerShell says "running scripts is disabled"** — run this once to allow activation scripts:
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+Then re-run the PowerShell activate command.
+
+**`python` not found after activation** — try `python3` instead, or verify Python 3.11 is installed:
+
+```bash
+python --version   # should print Python 3.11.x
+```
+
+**To deactivate** the environment when you are done:
+
+```bash
+deactivate
 ```
 
 ---
