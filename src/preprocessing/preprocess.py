@@ -83,12 +83,13 @@ def preprocess_language(lang_code):
 
     return processed
 
-
+# Displays sample tweets before and after cleaning for verification
 def show_cleaning_examples(lang_code, n=5):
     """
     Prints a few examples of original vs cleaned tweets so we can
     visually confirm the cleaning is working correctly.
     """
+    # Load training data for inspection
     df = pd.read_csv(f"data/{lang_code}_train.csv")
     df["cleaned_text"] = df["tweet"].apply(clean_tweet)
 
