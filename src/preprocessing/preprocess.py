@@ -2,6 +2,7 @@ import pandas as pd
 import re
 import os
 
+# Function to clean individual tweets by removing unwanted text patterns
 
 def clean_tweet(text):
     """
@@ -33,7 +34,7 @@ def clean_tweet(text):
 
     return text
 
-
+# Applies tweet cleaning to an entire dataset split
 def preprocess_split(df):
     """
     Applies cleaning to the tweet column of a DataFrame.
@@ -52,7 +53,7 @@ def preprocess_split(df):
 
     return df
 
-
+# Processes all dataset splits for a specific language
 def preprocess_language(lang_code):
     """
     Loads the saved CSVs for a language, applies preprocessing,
