@@ -104,6 +104,7 @@ def show_cleaning_examples(lang_code, n=5):
 
 # Main program execution starts here
 if __name__ == "__main__":
+    # Mapping of language codes to language names
     LANGUAGES = {
         "hau": "Hausa",
         "yor": "Yoruba",
