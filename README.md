@@ -80,6 +80,21 @@ Each tweet is labelled as **positive**, **negative**, or **neutral**.
 - Python 3.11
 - CUDA-compatible GPU recommended for transformer fine-tuning (experiments were run on Kaggle with dual T4 GPUs)
 
+Key library versions (full list in `requirements.txt`):
+
+| Package | Version |
+|---------|---------|
+| torch | >=2.0.0 |
+| transformers | >=4.35.0 |
+| datasets | >=2.14.0,<4.0.0 |
+| scikit-learn | >=1.3.0 |
+| pandas | >=2.0.0 |
+| numpy | >=1.24.0 |
+| accelerate | >=0.24.0 |
+| evaluate | >=0.4.0 |
+| lime | >=0.2.0 |
+| nltk | >=3.8.0 |
+
 ### Installation
 
 Clone the repository and install dependencies:
@@ -96,12 +111,14 @@ pip install -r requirements.txt
 
 ### 1. Preprocessing
 
+> **Note on data:** The raw CSV files are not included in the zip submission due to their size. Run the script below to download them directly from HuggingFace before running any other step.
+
 ```bash
 python src/preprocessing/load_data.py
 python src/preprocessing/preprocess.py
 ```
 
-This downloads the AfriSenti data via HuggingFace and saves cleaned CSVs to `data/processed/`. Preprocessing removes URLs, @mentions, RT markers, the hash symbol, and digits. African language diacritics and emojis are intentionally preserved.
+`load_data.py` downloads the AfriSenti dataset from [HuggingFace](https://huggingface.co/datasets/shmuhammad/AfriSenti-twitter-sentiment) and saves the raw splits to `data/`. `preprocess.py` then cleans the tweets (removes URLs, @mentions, RT markers, the hash symbol, and digits) and saves the output to `data/processed/`. African language diacritics and emojis are intentionally preserved.
 
 ### 2. Baseline Model
 
