@@ -12,13 +12,14 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import joblib
 
-
+# Dictionary of language codes and their names
 LANGUAGES = {
     "hau": "Hausa",
     "yor": "Yoruba",
     "ibo": "Igbo"
 }
 
+# Sentiment labels
 LABEL_NAMES = ["negative", "neutral", "positive"]
 
 
@@ -51,7 +52,8 @@ def train_baseline(lang_code):
     print(f"\n{'='*55}")
     print(f"Training baseline for {LANGUAGES[lang_code]} ({lang_code})")
     print("="*55)
-
+    
+    # Loading data
     splits = load_processed_data(lang_code)
     if splits is None:
         return None
@@ -60,6 +62,7 @@ def train_baseline(lang_code):
     val_df = splits["validation"]
     test_df = splits["test"]
 
+     # Separating features (text) and labels
     X_train = train_df["cleaned_text"].fillna("")
     y_train = train_df["label"]
 
@@ -91,16 +94,17 @@ def train_baseline(lang_code):
     )
     model.fit(X_train_tfidf, y_train)
 
-    # Evaluate on validation set
+    # Evaluating on validation set
     val_preds = model.predict(X_val_tfidf)
     val_f1 = f1_score(y_val, val_preds, average="weighted")
     val_acc = accuracy_score(y_val, val_preds)
 
-    # Evaluate on test set
+    # Evaluating on test set
     test_preds = model.predict(X_test_tfidf)
     test_f1 = f1_score(y_test, test_preds, average="weighted")
     test_acc = accuracy_score(y_test, test_preds)
 
+    # Printing results
     print(f"\nValidation  -> Weighted F1: {val_f1:.4f} | Accuracy: {val_acc:.4f}")
     print(f"Test        -> Weighted F1: {test_f1:.4f} | Accuracy: {test_acc:.4f}")
 
@@ -111,7 +115,7 @@ def train_baseline(lang_code):
         target_names=LABEL_NAMES,
         digits=4
     ))
-
+    # Returning everything
     return {
         "lang_code": lang_code,
         "model": model,
@@ -193,13 +197,16 @@ def summarise_all_results(all_results):
 
 
 if __name__ == "__main__":
+    # Dictionary to store results for each language
     all_results = {}
-
+    
+     # Training, evaluating, and saving results for each language
     for lang_code in LANGUAGES:
         results = train_baseline(lang_code)
         if results:
             plot_confusion_matrix(results, lang_code)
             save_model(results, lang_code)
             all_results[lang_code] = results
-
+            
+  # Printing summary of all languages
     summarise_all_results(all_results)
