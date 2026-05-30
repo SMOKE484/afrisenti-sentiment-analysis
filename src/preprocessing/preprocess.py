@@ -102,7 +102,7 @@ def show_cleaning_examples(lang_code, n=5):
         print(f"Label    : {row['label_name']}")
         print()
 
-
+# Main program execution starts here
 if __name__ == "__main__":
     LANGUAGES = {
         "hau": "Hausa",
