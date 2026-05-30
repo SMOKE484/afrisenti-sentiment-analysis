@@ -95,7 +95,7 @@ def show_cleaning_examples(lang_code, n=5):
 
     print(f"\nCleaning examples for {lang_code}:")
     print("-" * 60)
-
+  # Display a few examples to verify preprocessing quality
     for _, row in df.head(n).iterrows():
         print(f"Original : {row['tweet']}")
         print(f"Cleaned  : {row['cleaned_text']}")
